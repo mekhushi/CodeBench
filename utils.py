@@ -26,7 +26,7 @@ def detect_complexity(file_path: str, lang: str) -> str:
     try:
         code = open(file_path, "r").read().lower()
 
-        if lang.lower() == "python":
+        if lang.lower() == "python": 
             tree = ast.parse(code)
             loop_count = sum(isinstance(node, (ast.For, ast.While)) for node in ast.walk(tree))
             recursion = any(
@@ -50,3 +50,4 @@ def detect_complexity(file_path: str, lang: str) -> str:
         return "Possibly O(1)"
     except Exception:
         return "Unknown"
+
